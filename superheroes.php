@@ -64,9 +64,33 @@ $superheroes = [
 ];
 
 ?>
+<?php
+$hero=filter_var(htmlspecialchars($_GET['paramq']),FILTER_SANITIZE_STRING,FILTER_FLAG_NO_ENCODE_QUOTES);
+$invalid=$hero;
+foreach($superheroes as $villain){
+    if($hero===$villain['name'] || $hero===$villain['alias']){
+        $hero_check=$hero;
+        $hero_name=$villain['name'];
+        $hero_alias=$villain['alias'];
+        $hero_bio=$villain["biography"];
+    }
+}
+?>
+<?php if($hero_check!=""){ ?>
+    <?="<h2>RESULT</h2>"?>
+        <?="<hr>"?>
+        <?="<h3>$hero_alias</h3>"?>
+        <?="<h4>A.K.A $hero_name</h4>"?>
+        <?="<p> $hero_bio</p>"?>
+    <?php } elseif($invalid!=""){?>
+        <?="<h2>RESULT</h2>"?>
+        <?="<hr>"?>
+        <?="<h3>SUPERHERO NOT FOUND</h3>"?>
+    <?php }else{ ?>
 
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+<?php }?>
