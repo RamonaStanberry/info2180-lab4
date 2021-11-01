@@ -79,18 +79,23 @@ foreach($superheroes as $villain){
 <?php if($hero_check!=""){ ?>
     <?="<h2>RESULT</h2>"?>
         <?="<hr>"?>
+        <?= "<section class= valid_hero >"?>
         <?="<h3>$hero_alias</h3>"?>
         <?="<h4>A.K.A $hero_name</h4>"?>
         <?="<p> $hero_bio</p>"?>
-    <?php } elseif($invalid!=""){?>
-        <?="<h2>RESULT</h2>"?>
-        <?="<hr>"?>
-        <?="<h3>SUPERHERO NOT FOUND</h3>"?>
-    <?php }else{ ?>
-
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
-<?php }?>
+        <?= "</section>"?>
+<?php } elseif($invalid!=""){?>
+    <?="<h2>RESULT</h2>"?>
+    <?="<hr>"?>
+    <?= "<section class= invalid_hero >"?>
+    <?="<h3>SUPERHERO NOT FOUND</h3>"?>
+    <?="</section>" ?>
+<?php }else{ ?>
+    <?="<h2>RESULT</h2>"?>
+    <?="<hr>"?>
+    <ul>
+    <?php foreach ($superheroes as $superhero): ?>
+    <li><?= $superhero['alias']; ?></li>
+    <?php endforeach; ?>
+    </ul>
+    <?php }?>

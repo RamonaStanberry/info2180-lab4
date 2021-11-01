@@ -18,10 +18,10 @@ onload= function(){
             if (httpRequest.status === 200) {
                 var response = httpRequest.responseText;
                 sults.innerHTML= response;
-                console.log(response)
+                // console.log(response)
                 // alert(response);
             } else {
-                console.log(response)
+                // console.log(response)
                 // alert('There was a problem with the request.');
                 sults.innerHTML= "There was a problem with the request.";
             }
